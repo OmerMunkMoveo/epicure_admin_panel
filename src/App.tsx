@@ -1,26 +1,33 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import {Route, Routes} from "react-router-dom";
+import Navigation from "./components/Navigation";
+
+import Header from "./components/Header";
+import DashBoard from "./components/DashBoard";
+import Restaurants from "./components/Data/Restaurants";
+import Chefs from "./components/Data/Chefs";
+import Dishes from "./components/Data/Dishes";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Navigation/>
+            <div style={{marginLeft:"220px"}}>
+                <Header/>
+                <Routes>
+                    <Route path='/dashboard' element={<DashBoard/>}></Route>
+                    <Route path='/restaurants' element={<Restaurants/>}></Route>
+                    <Route path='/chefs' element={<Chefs/>}></Route>
+                    <Route path='/dishes' element={<Dishes/>}></Route>
+                </Routes>
+            </div>
+
+
+        </>
+    );
 }
 
 export default App;
